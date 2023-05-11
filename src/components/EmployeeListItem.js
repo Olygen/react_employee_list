@@ -14,7 +14,7 @@ export default function EmployeeListItem({
           handleClick(id);
         }}
       >
-        <img className="pic" src={img} />
+        <img className="pic" src={img} alt="employee" />
         <div className="">
           <h3>{name}</h3>
           <h6>{position}</h6>
