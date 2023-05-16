@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import HomePage from './components/HomePage';
 import EmployeePage from './components/EmployeePage';
@@ -11,17 +12,22 @@ function App() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   return (
-    <div className="App">
-      <div className="container">
-        <HomePage
-          employees={employees}
-          setSelectedEmployee={setSelectedEmployee}
-          setEmployees={setEmployees}
-        />
-        <EmployeePage employee={selectedEmployee} />
+      <BrowserRouter>
+      <div className="App">
+        <div className="container">
+          <Routes>
+            <Route path="/" 
+            element={<HomePage employees={employees} 
+            setSelectedEmployee={setSelectedEmployee} 
+            setEmployees={setEmployees} />} />
+            {/* <Route path="/employee/:id" element={<EmployeePage />} /> */}
+            <Route path="/employee/:id" element={<EmployeePage employee={selectedEmployee} />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
